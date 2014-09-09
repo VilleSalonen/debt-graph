@@ -2,15 +2,27 @@
   <title>Settle Your Debts</title>
   
   <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-  <h1>Settle Your Debts!</h1>
+  <div class="container">
+    <h1>Settle Your Debts!</h1>
+    
+    {{> users}}
   
-  
-  {{> users}}
-  
-  {{> login}}
+    {{> login}}
+  </div>
 </body>
 
 <template name="users">
@@ -31,7 +43,7 @@
 <template name="login">
   {{#if isLoggedIn}}
     Tervetuloa takaisin!
-    <span class="logout">Kirjaudu ulos</span>
+    <span class="logout btn btn-info">Kirjaudu ulos</span>
     
     <h2>Maksutapasi</h2>
     
@@ -40,7 +52,7 @@
         <li>
           {{ name }}
           {{ address }}
-          <span class="remove-account">Remove</span>
+          <span class="btn btn-danger remove-account">Remove</span>
         </li>
       {{/each}}
     </ul>
