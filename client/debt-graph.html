@@ -1,9 +1,73 @@
 <head>
   <title>Settle Your Debts</title>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
 </head>
 
 <body>
   <h1>Settle Your Debts!</h1>
   
-  {{> loginButtons}}
+  
+  {{> users}}
+  
+  {{> login}}
 </body>
+
+<template name="users">
+  <ul>
+    {{#each users}}
+      <li>
+        {{ username }}
+        <ul>
+          {{#each profile.accounts}}
+            <li>{{ name }}: {{ address }}</li>
+          {{/each}}
+        </ul>
+      </li>
+    {{/each}}
+  </ul>
+</template>
+
+<template name="login">
+  {{#if isLoggedIn}}
+    Tervetuloa takaisin!
+    <span class="logout">Kirjaudu ulos</span>
+    
+    <h2>Maksutapasi</h2>
+    
+    <ul>
+      {{#each accounts}}
+        <li>
+          {{ name }}
+          {{ address }}
+          <span class="remove-account">Remove</span>
+        </li>
+      {{/each}}
+    </ul>
+    
+    <form id="account-form" action="action">
+      <div>
+        <input type="text" id="account-name" />
+        <input type="text" id="account-address" />
+        <input type="submit" id="account-button" value="Add account" />
+      </div>
+    </form>
+  {{else}}
+    <form id="login-form" action="action">
+      <div>
+        <input type="email" id="login-email" />
+        <input type="password" id="login-password" />
+        <input type="submit" id="login-button" value="Sign in" />
+      </div>
+    </form>
+    
+    <form id="registration-form" action="action">
+      <div>
+        <input type="name" id="registration-name" />
+        <input type="email" id="registration-email" />
+        <input type="password" id="registration-password" />
+        <input type="submit" id="registration-button" value="Register" />
+      </div>
+    </form>
+  {{/if}}
+</template>
