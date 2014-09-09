@@ -1,13 +1,10 @@
+Handlebars.registerHelper('isLoggedIn', function () {
+    var user = Meteor.user();
+    return !_.isUndefined(user) && !_.isNull(user);
+});
+
 Template.users.users = function () {
   return Meteor.users.find();
-};
-
-Template.registration.isLoggedIn = function () {
-  return Meteor.userId();
-};
-
-Template.login.isLoggedIn = function () {
-  return Meteor.userId();
 };
 
 Template.login.username = function () {

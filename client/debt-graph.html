@@ -30,26 +30,26 @@
         </div>
       </div>
     </nav>
+  
+    {{#if isLoggedIn}}
+      {{> users}}
     
-    {{> users}}
-  
-    {{> accounts}}
-  
-    {{> registration}}
+      {{> accounts}}
+    {{else}}
+      {{> registration}}
+    {{/if}}
   </div>
 </body>
 
 <template name="registration">
-  {{#unless isLoggedIn}}
-    <form id="registration-form" action="action">
-      <div>
-        <input type="name" id="registration-name" />
-        <input type="email" id="registration-email" />
-        <input type="password" id="registration-password" />
-        <input type="submit" id="registration-button" value="Register" />
-      </div>
-    </form>
-  {{/unless}}
+  <form id="registration-form" action="action">
+    <div>
+      <input type="name" id="registration-name" />
+      <input type="email" id="registration-email" />
+      <input type="password" id="registration-password" />
+      <input type="submit" id="registration-button" value="Register" />
+    </div>
+  </form>
 </template>
 
 <template name="users">
