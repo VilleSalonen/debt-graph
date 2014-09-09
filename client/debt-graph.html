@@ -40,9 +40,7 @@
 </body>
 
 <template name="registration">
-  {{#if isLoggedIn}}
-    <!-- Better way to negate? -->
-  {{else}}
+  {{#unless isLoggedIn}}
     <form id="registration-form" action="action">
       <div>
         <input type="name" id="registration-name" />
@@ -51,7 +49,7 @@
         <input type="submit" id="registration-button" value="Register" />
       </div>
     </form>
-  {{/if}}
+  {{/unless}}
 </template>
 
 <template name="users">
