@@ -47,11 +47,10 @@ Template.accounts.events({
     var accountName = t.find('#account-name').value
     , accountAddress = t.find('#account-address').value;
 
-    var profile = Meteor.user().profile || { accounts: [] };
-    var accounts = profile.accounts;
-    accounts.push({ name: accountName, address: accountAddress });
+    var profile = Meteor.user().profile;
+    profile.accounts.push({ name: accountName, address: accountAddress });
 
-    Meteor.users.update({ _id: Meteor.userId() }, { $set: { profile: { accounts: accounts } } }, function(err) {
+    Meteor.users.update({ _id: Meteor.userId() }, { $set: { profile: profile } }, function(err) {
       if (err)
         alert(err);
     });
