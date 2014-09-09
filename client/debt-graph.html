@@ -42,10 +42,11 @@
 
 <template name="login">
   {{#if isLoggedIn}}
-    Tervetuloa takaisin!
-    <span class="logout btn btn-info">Kirjaudu ulos</span>
+    Welcome back!
     
-    <h2>Maksutapasi</h2>
+    <span class="logout btn btn-info">Logout</span>
+    
+    <h2>Your accounts</h2>
     
     <ul>
       {{#each accounts}}
