@@ -83,23 +83,34 @@
 </template>
 
 <template name="accounts">
-  <h2>Your accounts</h2>
+  <h3>Your accounts</h3>
   
-  <ul>
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>&nbsp;</th>
+    </tr>
     {{#each accounts}}
-      <li>
-        {{ name }}
-        {{ address }}
-        <span class="btn btn-danger remove-account">Remove</span>
-      </li>
+      <tr>
+        <td>{{ name }}</td>
+        <td>{{ address }}</td>
+        <td><span class="btn btn-danger remove-account">Remove</span></td>
+      </tr>
     {{/each}}
-  </ul>
+  </table>
   
-  <form id="account-form" action="action">
-    <div>
-      <input type="text" id="account-name" />
-      <input type="text" id="account-address" />
-      <input type="submit" id="account-button" value="Add account" />
+  <h3>Add new account</h3>
+  
+  <form id="account-form" action="action" role="form">
+    <div class="form-group">
+      <input type="text" id="account-name" placeholder="Account name (e.g. Bitcoin, your bank)" class="form-control" />
+    </div>
+    <div class="form-group">
+      <input type="text" id="account-address" placeholder="Address (e.g. Bitcoin address, bank account)" class="form-control" />
+    </div>
+    <div class="form-group">
+      <button type="submit" id="account-button" class="btn btn-success">Add account</button>
     </div>
   </form>
 </template>
