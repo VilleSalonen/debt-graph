@@ -10,11 +10,11 @@ Template.login.isLoggedIn = function () {
   return Meteor.userId();
 };
 
-Template.login.gravatar = function () {
+Template.login.username = function () {
   var user = Meteor.user();
   if (!user) { return ""; }
 
-  return Meteor.user().profile.gravatar;
+  return Meteor.user().username;
 };
 
 Template.login.accounts = function () {
