@@ -35,7 +35,9 @@ Template.login.events({
     , password = t.find('#registration-password').value
     , username = t.find('#registration-name').value;
 
-    Accounts.createUser({ username: username, email: email, password: password }, function(err) {
+    var gravatar = CryptoJS.MD5(email).toString();
+
+    Accounts.createUser({ username: username, email: email, password: password, profile: { accounts: [], gravatar: "gravatar" } }, function(err) {
       if (err)
         alert(err);
     });
