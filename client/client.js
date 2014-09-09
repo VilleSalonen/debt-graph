@@ -14,7 +14,7 @@ Template.login.username = function () {
   return Meteor.user().username;
 };
 
-Template.login.accounts = function () {
+Template.accounts.accounts = function () {
   return Meteor.user().profile.accounts;
 };
 
